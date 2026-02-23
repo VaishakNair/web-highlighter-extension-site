@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Highlighter | Elevate Your Research</title>
+    <meta name="description"
+        content="The ultimate Chrome extension for highlighting web pages, taking notes, and AI-powered summaries. Private, powerful, and perfectly organized.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <nav class="glass">
+        <div class="container nav-content">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span>Web Highlighter</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="https://github.com/vaishak/WebHighlighter" class="btn btn-outline"
+                        target="_blank">GitHub</a></li>
+                <li><a href="#" class="btn btn-primary">Add to Chrome</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <h1 class="fade-in">Research Smarter, <span class="gradient-text">Highlight Better.</span></h1>
+            <p class="hero-subtitle delay-1">The all-in-one companion for readers, researchers, and students. Highlight,
+                annotate, and summarize the web with privacy at its core.</p>
+            <div class="hero-btns delay-2">
+                <a href="#" class="btn btn-primary btn-large">Install Extension</a>
+                <a href="#features" class="btn btn-secondary btn-large">Explore Features</a>
+            </div>
+            <div class="hero-demo-container delay-3">
+                <div class="hero-mockup glass">
+                    <div class="mockup-header">
+                        <div class="dots"><span></span><span></span><span></span></div>
+                        <div class="url-bar">medium.com/how-to-research</div>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="content-skeleton">
+                            <div class="line"></div>
+                            <div class="line highlight-yellow">Experience the most fluid way to capture ideas.</div>
+                            <div class="line"></div>
+                            <div class="line underline-purple">Notes that stay where you put them, integrated perfectly.
+                            </div>
+                            <div class="line"></div>
+                            <div class="line highlight-cyan">Local AI works instantly without your data ever leaving.
+                            </div>
+                        </div>
+                        <div class="mockup-sidepanel glass">
+                            <div class="sidepanel-header">AI Summary</div>
+                            <div class="sidepanel-list">
+                                <div class="sidepanel-item">Privacy focused local models.</div>
+                                <div class="sidepanel-item">Automatic ordering of thoughts.</div>
+                                <div class="sidepanel-item">Seamless export and backup.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-glow"></div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Everything you need to <span class="gradient-text">master the web.</span></h2>
+            <div class="features-grid">
+                <!-- 1. Highlight or Underline -->
+                <div class="feature-card glass">
+                    <div class="feature-icon"><i data-lucide="highlighter"></i></div>
+                    <h3>Highlight or Underline</h3>
+                    <p>Choose between classic highlighting or sleek underlining. Pick the style that fits your reading
+                        mood.</p>
+                </div>
+                <!-- 2. Perfectly Ordered Research -->
+                <div class="feature-card glass">
+                    <div class="feature-icon"><i data-lucide="list-ordered"></i></div>
+                    <h3>Order in Chaos</h3>
+                    <p>Your highlights automatically follow the page order. If it appears first on the page, it appears
+                        first in your list.</p>
+                </div>
+                <!-- 3. Custom Manual Reordering -->
+                <div class="feature-card glass">
+                    <div class="feature-icon"><i data-lucide="grab"></i></div>
+                    <h3>Manual Reordering</h3>
+                    <p>Move a highlight to the top or group ideas together. Drag and drop to arrange your research
+                        exactly how you want.</p>
+                </div>
+                <!-- 4. Original Layout -->
+                <div class="feature-card glass">
+                    <div class="feature-icon"><i data-lucide="layout"></i></div>
+                    <h3>Layout Preservation</h3>
+                    <p>Lists, tables, or complex paragraphs—we keep the original layout so your notes are always easy to
+                        read.</p>
+                </div>
+                <!-- 5. AI Assistant -->
+                <div class="feature-card glass">
+                    <div class="feature-icon"><i data-lucide="sparkles"></i></div>
+                    <h3>Private AI Assistant</h3>
+                    <p>Get instant summaries in bullet points. Works 100% on your computer, keeping your data entirely
+                        private.</p>
+                </div>
+                <!-- 6. Add Thoughts -->
+                <div class="feature-card glass">
+                    <div class="feature-icon"><i data-lucide="sticky-note"></i></div>
+                    <h3>Notes & Tags</h3>
+                    <p>Add personal notes or use tags to group related ideas. Your digital notebook that lives in the
+                        browser.</p>
+                </div>
+                <!-- 7. Side Panel -->
+                <div class="feature-card glass">
+                    <div class="feature-icon"><i data-lucide="panels-right-bottom"></i></div>
+                    <h3>Dashboard Side Panel</h3>
+                    <p>Search, edit, or summarize without leaving the page. A clean dashboard for all your saved
+                        snippets.</p>
+                </div>
+                <!-- 8. Data Control -->
+                <div class="feature-card glass">
+                    <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+                    <h3>Full Data Control</h3>
+                    <p>Your research belongs to you. Backup or restore data to your device anytime. No servers, no
+                        tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="privacy" class="privacy-callout">
+        <div class="container glass callout-content">
+            <div class="callout-text">
+                <h2>Privacy isn't a feature, <br><span class="gradient-text">it's the standard.</span></h2>
+                <p>Web Highlighter is built on a "local-first" philosophy. Your highlights, notes, and AI processing
+                    happen right on your machine. We don't store your data on our servers because we never want to see
+                    it.</p>
+                <ul class="check-list">
+                    <li><i data-lucide="check-circle-2"></i> No data collection</li>
+                    <li><i data-lucide="check-circle-2"></i> Local AI processing</li>
+                    <li><i data-lucide="check-circle-2"></i> Offline functionality</li>
+                </ul>
+            </div>
+            <div class="callout-graphic">
+                <i data-lucide="lock" class="floating-lock"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container glass cta-content">
+            <h2>Ready to transform your research?</h2>
+            <p>Join thousands of students and professionals who use Web Highlighter to stay organized.</p>
+            <div class="cta-btns">
+                <a href="#" class="btn btn-primary btn-large">Add to Chrome — It's Free</a>
+                <a href="https://github.com/vaishak/WebHighlighter" class="btn btn-secondary btn-large">View Source</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <span>Web Highlighter</span>
+                </div>
+                <p>Enhancing the way you consume the web.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Release Notes</a>
+                </div>
+                <div class="link-group">
+                    <h4>Connect</h4>
+                    <a href="https://github.com/vaishak/WebHighlighter">GitHub</a>
+                    <a href="#">Chrome Store</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Web Highlighter. Built for the modern researcher.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
