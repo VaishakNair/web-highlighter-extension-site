@@ -152,22 +152,9 @@ nav {
 .logo-icon {
     width: 32px;
     height: 32px;
-    background: var(--gradient);
     border-radius: 8px;
-    position: relative;
-    overflow: hidden;
-}
-
-.logo-icon::after {
-    content: '';
-    position: absolute;
-    width: 60%;
-    height: 3px;
-    background: white;
-    top: 50%;
-    left: 20%;
-    transform: translateY(-50%);
-    border-radius: 2px;
+    object-fit: contain;
+    padding: 4px;
 }
 
 .nav-links {
@@ -202,6 +189,43 @@ nav {
     align-items: center;
     z-index: 2;
     position: relative;
+}
+
+.hero-badge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.hero-badge:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.hero-badge img {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    object-fit: contain;
+    padding: 2px;
+}
+
+.hero-badge span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .hero h1 {
@@ -284,6 +308,17 @@ nav {
     color: var(--text-muted);
     flex-grow: 1;
     text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.mockup-favicon {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    border-radius: 2px;
+    object-fit: contain;
+    padding: 1px;
 }
 
 .mockup-body {
@@ -678,6 +713,29 @@ nav {
     align-items: center;
     gap: 2rem;
     background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(0, 245, 255, 0.1));
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px var(--primary-glow));
+    animation: float-short 4s ease-in-out infinite;
+}
+
+.cta-icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 16px;
+    padding: 10px;
+}
+
+@keyframes float-short {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .cta-content h2 {
