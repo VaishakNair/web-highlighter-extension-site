@@ -64,17 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Simple sticky nav effect
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.style.padding = '0.5rem 2rem';
-            nav.style.background = 'rgba(10, 10, 10, 0.8)';
-        } else {
-            nav.style.padding = '0.75rem 2rem';
-            nav.style.background = 'rgba(255, 255, 255, 0.03)';
-        }
-    });
+    // Sticky nav effect removed because navigation bar was replaced with a static logo.
 });
 
 // Add extra styles for reveal animation via JS to keep CSS clean

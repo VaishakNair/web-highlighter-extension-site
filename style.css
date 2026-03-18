@@ -117,67 +117,45 @@ h3 {
     font-size: 1.1rem;
 }
 
-/* Navbar */
-nav {
-    position: fixed;
-    top: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1000px;
-    z-index: 1000;
-    padding: 0.75rem 2rem;
+/* Header */
+.simple-logo-header {
+    padding: 2rem 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-}
-
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
     font-family: 'Outfit', sans-serif;
 }
 
 .logo-icon {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 8px;
     object-fit: contain;
     padding: 4px;
 }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    list-style: none;
+.simple-logo-header .logo {
+    font-size: 4.5rem;
+    gap: 1.5rem;
+    letter-spacing: -0.02em;
 }
 
-.nav-links a:not(.btn) {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-links a:not(.btn):hover {
-    color: var(--text-main);
+.simple-logo-header .logo-icon {
+    width: 80px;
+    height: 80px;
 }
 
 /* Hero Section */
 .hero {
-    padding-top: 12rem;
+    padding-top: 6rem;
     padding-bottom: 8rem;
     position: relative;
     text-align: center;
@@ -189,43 +167,6 @@ nav {
     align-items: center;
     z-index: 2;
     position: relative;
-}
-
-.hero-badge {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-color);
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    cursor: default;
-}
-
-.hero-badge:hover {
-    border-color: var(--primary);
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.hero-badge img {
-    width: 24px;
-    height: 24px;
-    border-radius: 4px;
-    object-fit: contain;
-    padding: 2px;
-}
-
-.hero-badge span {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
 }
 
 .hero h1 {
@@ -700,6 +641,70 @@ nav {
     }
 }
 
+/* Free/Support Section */
+.free-callout {
+    padding: 100px 0;
+}
+
+.callout-reverse {
+    grid-template-columns: 1fr 1.5fr;
+}
+
+.floating-gift {
+    width: 150px;
+    height: 150px;
+    color: var(--secondary);
+    filter: drop-shadow(0 0 30px rgba(0, 245, 255, 0.4));
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -3s; /* Offset from lock animation */
+}
+
+.support-btns {
+    margin-top: 2rem;
+}
+
+.support-text {
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+    color: var(--text-muted);
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-patreon {
+    background: #FF424D;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(255, 66, 77, 0.2);
+}
+
+.btn-patreon:hover {
+    background: #e63c45;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 66, 77, 0.4);
+}
+
+.btn-bmc {
+    background: #FFDD00;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(255, 221, 0, 0.2);
+}
+
+.btn-bmc:hover {
+    background: #e6c700;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 221, 0, 0.4);
+}
+
 /* CTA Section */
 .cta-section {
     padding: 100px 0;
@@ -833,15 +838,23 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
 
     .hero h1 {
         font-size: 3rem;
     }
 
-    .callout-content {
+    .simple-logo-header .logo {
+        font-size: 3rem;
+        gap: 1rem;
+    }
+
+    .simple-logo-header .logo-icon {
+        width: 56px;
+        height: 56px;
+    }
+
+    .callout-content,
+    .callout-reverse {
         grid-template-columns: 1fr;
         gap: 3rem;
         padding: 2.5rem;
