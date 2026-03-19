@@ -139,7 +139,7 @@ h3 {
     height: 36px;
     border-radius: 8px;
     object-fit: contain;
-    padding: 4px;
+    padding: 8px;
 }
 
 .simple-logo-header .logo {
@@ -159,6 +159,18 @@ h3 {
     padding-bottom: 8rem;
     position: relative;
     text-align: center;
+}
+
+/* Explicit Footer Logo Styling */
+.footer-brand .logo {
+    font-size: 1.8rem !important;
+    gap: 0.85rem !important;
+}
+
+.footer-brand .logo-icon {
+    width: 48px !important;
+    height: 48px !important;
+    padding: 6px !important;
 }
 
 .hero-content {
