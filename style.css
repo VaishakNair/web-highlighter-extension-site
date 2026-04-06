@@ -20,6 +20,7 @@
     --ext-cyan: #7afcff;
     --ext-orange: #fe9a2e;
     --ext-violet: #9b51e0;
+    --fluorescent-green: #ccff00;
 }
 
 * {
@@ -820,6 +821,23 @@ footer {
     border-top: 1px solid var(--border-color);
     color: var(--text-muted);
     font-size: 0.9rem;
+}
+
+.made-with {
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.heart-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--fluorescent-green);
+    fill: var(--fluorescent-green);
+    filter: drop-shadow(0 0 5px rgba(204, 255, 0, 0.4));
 }
 
 /* Animations */
