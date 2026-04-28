@@ -7,8 +7,8 @@ function getStoreConfig() {
             footerText: "MS Edge Add-ons"
         };
     }
-    return { // TODO: Add the actual link to the Chrome store
-        link: "https://chrome.google.com/webstore/detail/placeholder-id",
+    return { 
+        link: "https://chromewebstore.google.com/detail/epnoggbdldjklccdhojpfdeabblaceph",
         name: "Chrome",
         footerText: "Chrome Web Store"
     };
