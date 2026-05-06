@@ -2,7 +2,7 @@ function getStoreConfig() {
     const userAgent = navigator.userAgent;
     if (userAgent.includes("Edg/")) {
         return { // TODO: Add the actual link to the Edge store
-            link: "https://microsoftedge.microsoft.com/addons/detail/placeholder-id",
+            link: "https://microsoftedge.microsoft.com/addons/detail/peakbefikblbppankhklkokpfonkaceo",
             name: "Edge",
             footerText: "MS Edge Add-ons"
         };
