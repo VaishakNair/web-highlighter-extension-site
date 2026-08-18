@@ -618,6 +618,11 @@ h3 {
     color: white;
 }
 
+.feature-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
 .feature-card h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -626,6 +631,41 @@ h3 {
 .feature-card p {
     color: var(--text-muted);
     font-size: 1rem;
+}
+
+.feature-sublist {
+    list-style: none;
+    margin-top: 0.75rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.feature-sublist li {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+    position: relative;
+    padding-left: 1.2rem;
+    text-align: left;
+}
+
+.feature-sublist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--secondary);
+    box-shadow: 0 0 8px var(--secondary);
+}
+
+.feature-sublist li strong {
+    color: var(--text-main);
+    font-weight: 600;
 }
 
 /* Privacy Section */
@@ -1037,6 +1077,17 @@ footer {
     font-size: 1rem;
     max-width: 800px;
     margin: 0 auto;
+}
+
+.modal-text .feature-sublist {
+    text-align: left;
+    max-width: 650px;
+    margin: 0.75rem auto 0;
+    padding-left: 0;
+}
+
+.modal-text .feature-sublist li {
+    font-size: 0.95rem;
 }
 
 @media (min-width: 992px) {
