@@ -36,11 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', () => {
             const img = card.querySelector('img').src;
             const title = card.querySelector('h3').innerText;
-            const desc = card.querySelector('p').innerText;
+            const sublist = card.querySelector('.feature-sublist');
+            const p = card.querySelector('p');
 
             modalImg.src = img;
             modalTitle.innerText = title;
-            modalDesc.innerText = desc;
+            if (sublist) {
+                modalDesc.innerHTML = sublist.outerHTML;
+            } else if (p) {
+                modalDesc.innerHTML = p.outerHTML;
+            } else {
+                modalDesc.innerHTML = '';
+            }
 
             modal.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent scroll
