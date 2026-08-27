@@ -355,7 +355,7 @@
                     <div class="pin-step">
                         <div class="pin-step-num">1</div>
                         <div class="pin-step-text">
-                            Click Chrome's <strong>Extensions puzzle icon (🧩)</strong> in the top-right toolbar.
+                            Click the <strong>Extensions puzzle icon (🧩)</strong> in your <strong class="browser-name">Chrome</strong> toolbar.
                         </div>
                     </div>
                     <div class="pin-step">
@@ -373,7 +373,7 @@
                 </div>
             </div>
             <div class="pin-visual-wrap">
-                <img src="assets/pin-extension.svg" alt="How to pin Web Highlighter in Chrome" />
+                <img src="assets/pin-extension.svg" alt="How to pin Web Highlighter in your toolbar" />
             </div>
         </section>
 
@@ -407,7 +407,7 @@
                     </div>
                     <h3>Side Panel Command Center</h3>
                     <p>
-                        Click the pinned extension icon anytime to open Chrome's Side Panel. Search semantically, filter by tags, and jump back to your saved snippets.
+                        Click the pinned extension icon anytime to open the <span class="browser-sidepanel-name">Chrome</span> Side Panel. Search semantically, filter by tags, and jump back to your saved snippets.
                     </p>
                     <div class="tag-row">
                         <span class="mini-tag">Semantic Search</span>
@@ -419,7 +419,10 @@
                 <!-- 3. YouTube Highlighting -->
                 <div class="onboarding-card glass">
                     <div class="onboarding-icon">
-                        <i data-lucide="youtube"></i>
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"></polygon>
+                        </svg>
                     </div>
                     <h3>YouTube Video Highlights</h3>
                     <p>
@@ -439,11 +442,11 @@
                     </div>
                     <h3>100% On-Device & Private</h3>
                     <p>
-                        Your data never leaves your browser. All highlights are saved in local IndexedDB, and AI summaries run locally via Chrome Built-in AI & WebGPU.
+                        Your data never leaves your browser. All highlights are saved in local IndexedDB, and AI summaries run locally on your device via On-Device AI & WebGPU.
                     </p>
                     <div class="tag-row">
                         <span class="mini-tag">IndexedDB</span>
-                        <span class="mini-tag">Built-in AI</span>
+                        <span class="mini-tag">On-Device AI</span>
                         <span class="mini-tag">Zero Telemetry</span>
                     </div>
                 </div>
@@ -589,8 +592,12 @@
             animationId = requestAnimationFrame(render);
         })();
 
-        // 2. Interactive Sandbox Palette
-        document.addEventListener('DOMContentLoaded', () => {
+        // 2. Interactive Sandbox Palette & Browser Detection
+        function initWelcome() {
+            if (typeof applyBrowserBranding === 'function') {
+                applyBrowserBranding();
+            }
+
             const swatches = document.querySelectorAll('.swatch-btn');
             const sampleMarks = document.querySelectorAll('.sandbox-text mark');
 
@@ -610,7 +617,13 @@
             if (window.lucide) {
                 lucide.createIcons();
             }
-        });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initWelcome);
+        } else {
+            initWelcome();
+        }
     </script>
 </body>
 
