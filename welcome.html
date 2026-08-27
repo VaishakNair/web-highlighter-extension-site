@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Web Highlighter 🎉 | Getting Started</title>
+    <meta name="description" content="Thank you for installing Web Highlighter. Follow these simple tips to get started highlighting webpages and YouTube videos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/icon.png">
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Confetti Overlay */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* Hero Onboarding Customizations */
+        .welcome-hero {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            text-align: center;
+        }
+
+        .welcome-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1.1rem;
+            background: rgba(138, 43, 226, 0.15);
+            border: 1px solid rgba(138, 43, 226, 0.4);
+            border-radius: 999px;
+            color: var(--secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .welcome-title {
+            font-size: 3.2rem;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Reload Tabs Warning Banner */
+        .reload-banner {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: 1.5rem 1.75rem;
+            background: rgba(254, 188, 46, 0.08);
+            border: 1px solid rgba(254, 188, 46, 0.3);
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .reload-icon-wrap {
+            color: var(--ext-yellow);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .reload-content h3 {
+            font-size: 1.15rem;
+            color: #ffffff;
+            margin-bottom: 0.35rem;
+        }
+
+        .reload-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .reload-content kbd {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.15rem 0.45rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #ffffff;
+        }
+
+        /* Pinning Section */
+        .pin-guide-container {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 2.5rem;
+            align-items: center;
+            padding: 2.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        @media (max-width: 860px) {
+            .pin-guide-container {
+                grid-template-columns: 1fr;
+            }
+            .welcome-title {
+                font-size: 2.3rem;
+            }
+        }
+
+        .pin-steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .pin-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .pin-step-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+
+        .pin-step-text {
+            color: var(--text-main);
+            font-size: 1rem;
+            line-height: 1.45;
+        }
+
+        .pin-step-text strong {
+            color: var(--secondary);
+        }
+
+        .pin-visual-wrap {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #0d0d0d;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .pin-visual-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Feature Cards for Onboarding */
+        .onboarding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .onboarding-card {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .onboarding-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--secondary);
+        }
+
+        .onboarding-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(138, 43, 226, 0.15);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+        }
+
+        .onboarding-card h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .onboarding-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+
+        .mini-tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.55rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-muted);
+        }
+
+        /* Interactive Playground Sandbox */
+        .sandbox-section {
+            padding: 2.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .sandbox-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-top: 1.25rem;
+        }
+
+        .sandbox-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+
+        .sandbox-text mark {
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            color: #111827;
+            font-weight: 500;
+            transition: background-color 0.25s ease;
+        }
+
+        .sandbox-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .swatch-group {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .swatch-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .swatch-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .swatch-btn.active {
+            border-color: #ffffff;
+            transform: scale(1.15);
+        }
+
+        .welcome-cta {
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Confetti Falling Overlay -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Top Logo Navigation -->
+    <div class="simple-logo-header container" style="padding: 2rem 2rem; justify-content: flex-start;">
+        <div class="logo">
+            <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
+                <img src="assets/icon.png" alt="Web Highlighter Logo" class="logo-icon" style="width: 36px; height: 36px;">
+                <span style="font-size: 1.5rem;">Web Highlighter</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Header -->
+        <section class="welcome-hero">
+            <div class="welcome-badge">
+                <i data-lucide="sparkles"></i>
+                <span>You're all set!</span>
+            </div>
+            <h1 class="welcome-title">Thank You for Installing <span class="gradient-text">Web Highlighter</span></h1>
+            <p class="welcome-subtitle">
+                Your private, on-device AI companion for capturing insights, annotating research, and highlighting YouTube video transcripts with zero cloud tracking.
+            </p>
+        </section>
+
+        <!-- Reload Notice Banner -->
+        <div class="reload-banner glass">
+            <div class="reload-icon-wrap">
+                <i data-lucide="alert-triangle" style="width: 28px; height: 28px;"></i>
+            </div>
+            <div class="reload-content">
+                <h3>Already have tabs open? Give them a quick refresh!</h3>
+                <p>
+                    To start highlighting on tabs that were already open before you installed the extension, simply reload them with <kbd>Ctrl + R</kbd> (or <kbd>Cmd + R</kbd> on macOS).
+                </p>
+            </div>
+        </div>
+
+        <!-- Step 1: Pin Extension -->
+        <section class="pin-guide-container glass">
+            <div>
+                <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">📌 Step 1: Pin to Your Toolbar</h2>
+                <p style="color: var(--text-muted); font-size: 1.05rem;">
+                    Keep Web Highlighter always 1-click away while browsing and researching:
+                </p>
+                <div class="pin-steps-list">
+                    <div class="pin-step">
+                        <div class="pin-step-num">1</div>
+                        <div class="pin-step-text">
+                            Click Chrome's <strong>Extensions puzzle icon (🧩)</strong> in the top-right toolbar.
+                        </div>
+                    </div>
+                    <div class="pin-step">
+                        <div class="pin-step-num">2</div>
+                        <div class="pin-step-text">
+                            Find <strong>Web Highlighter</strong> in your installed list.
+                        </div>
+                    </div>
+                    <div class="pin-step">
+                        <div class="pin-step-num">3</div>
+                        <div class="pin-step-text">
+                            Click the <strong>Pin icon (📌)</strong> so Web Highlighter stays permanently visible in your toolbar.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pin-visual-wrap">
+                <img src="assets/pin-extension.svg" alt="How to pin Web Highlighter in Chrome" />
+            </div>
+        </section>
+
+        <!-- Feature Guide Cards -->
+        <section style="margin-bottom: 2rem;">
+            <h2 class="section-title" style="margin-bottom: 1.5rem; text-align: left;">
+                Getting Started with <span class="gradient-text">Key Features</span>
+            </h2>
+
+            <div class="onboarding-grid">
+                <!-- 1. Quick Highlight -->
+                <div class="onboarding-card glass">
+                    <div class="onboarding-icon">
+                        <i data-lucide="highlighter"></i>
+                    </div>
+                    <h3>Quick Highlighting</h3>
+                    <p>
+                        Select any text on any webpage to bring up the floating color palette, or press <kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-family: monospace;">Alt + H</kbd> for instant marking.
+                    </p>
+                    <div class="tag-row">
+                        <span class="mini-tag">10 Colors</span>
+                        <span class="mini-tag">Underline Mode</span>
+                        <span class="mini-tag">Alt + H</span>
+                    </div>
+                </div>
+
+                <!-- 2. Side Panel -->
+                <div class="onboarding-card glass">
+                    <div class="onboarding-icon">
+                        <i data-lucide="panel-right"></i>
+                    </div>
+                    <h3>Side Panel Command Center</h3>
+                    <p>
+                        Click the pinned extension icon anytime to open Chrome's Side Panel. Search semantically, filter by tags, and jump back to your saved snippets.
+                    </p>
+                    <div class="tag-row">
+                        <span class="mini-tag">Semantic Search</span>
+                        <span class="mini-tag">Tags & Notes</span>
+                        <span class="mini-tag">Backup Data</span>
+                    </div>
+                </div>
+
+                <!-- 3. YouTube Highlighting -->
+                <div class="onboarding-card glass">
+                    <div class="onboarding-icon">
+                        <i data-lucide="youtube"></i>
+                    </div>
+                    <h3>YouTube Video Highlights</h3>
+                    <p>
+                        Web Highlighter deeply integrates with YouTube! Use the dedicated <strong>Highlight video button in the player control bar</strong> or the red <strong>YT toolbar badge</strong> to highlight transcripts.
+                    </p>
+                    <div class="tag-row">
+                        <span class="mini-tag">In-Player Button</span>
+                        <span class="mini-tag">YT Badge</span>
+                        <span class="mini-tag">Timestamps</span>
+                    </div>
+                </div>
+
+                <!-- 4. On-Device AI -->
+                <div class="onboarding-card glass">
+                    <div class="onboarding-icon">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <h3>100% On-Device & Private</h3>
+                    <p>
+                        Your data never leaves your browser. All highlights are saved in local IndexedDB, and AI summaries run locally via Chrome Built-in AI & WebGPU.
+                    </p>
+                    <div class="tag-row">
+                        <span class="mini-tag">IndexedDB</span>
+                        <span class="mini-tag">Built-in AI</span>
+                        <span class="mini-tag">Zero Telemetry</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Playground Sandbox -->
+        <section class="sandbox-section glass">
+            <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;">🧪 Interactive Highlight Playground</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">
+                Try out how highlights look right here! Select text or click the palette swatches below:
+            </p>
+            <div class="sandbox-box">
+                <p class="sandbox-text" id="sandbox-text">
+                    Web Highlighter helps you capture <mark id="sample-mark-1" style="background-color: var(--ext-yellow);">essential ideas</mark> while reading articles, documentation, and video transcripts. You can customize colors, add notes, search semantically, and generate AI summaries with <mark id="sample-mark-2" style="background-color: var(--secondary);">complete local privacy</mark>.
+                </p>
+                <div class="sandbox-toolbar">
+                    <div class="swatch-group">
+                        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">Try Palette Colors:</span>
+                        <button class="swatch-btn active" style="background-color: var(--ext-yellow);" data-color="#febc2e" title="Yellow"></button>
+                        <button class="swatch-btn" style="background-color: var(--secondary);" data-color="#00f5ff" title="Cyan"></button>
+                        <button class="swatch-btn" style="background-color: var(--ext-green);" data-color="#28c840" title="Green"></button>
+                        <button class="swatch-btn" style="background-color: var(--ext-pink);" data-color="#ff7eb9" title="Pink"></button>
+                        <button class="swatch-btn" style="background-color: var(--ext-purple);" data-color="#5e5ce6" title="Purple"></button>
+                        <button class="swatch-btn" style="background-color: var(--ext-orange);" data-color="#fe9a2e" title="Orange"></button>
+                    </div>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">
+                        💡 Customize your default highlight color anytime in extension settings.
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA & Quick Navigation -->
+        <section class="welcome-cta">
+            <div style="display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
+                <a href="index.html#features" class="btn btn-primary btn-large">Explore All Features</a>
+                <a href="index.html#demo" class="btn btn-secondary btn-large">Watch Video Demo</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Dynamic Template -->
+    <footer></footer>
+
+    <script src="shared.js"></script>
+
+    <!-- Confetti Particle Engine & Sandbox Logic -->
+    <script>
+        // 1. Confetti Animation
+        (function initConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            const colors = ['#8a2be2', '#00f5ff', '#ff5f57', '#febc2e', '#28c840', '#ff7eb9', '#9b51e0'];
+            const particles = [];
+            const particleCount = 150;
+            const startTime = performance.now();
+            const spawnDuration = 2200;
+
+            function createParticle(fromTop) {
+                return {
+                    x: Math.random() * canvas.width,
+                    y: fromTop ? -20 - Math.random() * 40 : Math.random() * (canvas.height * 0.3) - 20,
+                    vx: (Math.random() - 0.5) * 4,
+                    vy: Math.random() * 3 + 2.5,
+                    size: Math.random() * 8 + 6,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 8,
+                    wobble: Math.random() * Math.PI * 2,
+                    wobbleSpeed: Math.random() * 0.1 + 0.05,
+                    opacity: 1,
+                    shape: Math.random() > 0.3 ? 'rect' : 'circle'
+                };
+            }
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(createParticle(true));
+            }
+
+            let animationId;
+            function render(timestamp) {
+                const elapsed = timestamp - startTime;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                if (elapsed < spawnDuration && particles.length < particleCount) {
+                    particles.push(createParticle(true));
+                }
+
+                let activeCount = 0;
+
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i];
+                    p.x += p.vx + Math.sin(p.wobble) * 1.5;
+                    p.y += p.vy;
+                    p.vy += 0.06;
+                    p.vx *= 0.99;
+                    p.rotation += p.rotationSpeed;
+                    p.wobble += p.wobbleSpeed;
+
+                    if (p.y > canvas.height * 0.75 || elapsed > 3500) {
+                        p.opacity -= 0.015;
+                    }
+
+                    if (p.opacity > 0 && p.y < canvas.height + 50) {
+                        activeCount++;
+                        ctx.save();
+                        ctx.translate(p.x, p.y);
+                        ctx.rotate((p.rotation * Math.PI) / 180);
+                        ctx.globalAlpha = Math.max(0, p.opacity);
+                        ctx.fillStyle = p.color;
+
+                        if (p.shape === 'circle') {
+                            ctx.beginPath();
+                            ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+                            ctx.fill();
+                        } else {
+                            ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size * 0.6);
+                        }
+                        ctx.restore();
+                    }
+                }
+
+                if (activeCount > 0 && elapsed < 6000) {
+                    animationId = requestAnimationFrame(render);
+                } else {
+                    cancelAnimationFrame(animationId);
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+
+            animationId = requestAnimationFrame(render);
+        })();
+
+        // 2. Interactive Sandbox Palette
+        document.addEventListener('DOMContentLoaded', () => {
+            const swatches = document.querySelectorAll('.swatch-btn');
+            const sampleMarks = document.querySelectorAll('.sandbox-text mark');
+
+            swatches.forEach(swatch => {
+                swatch.addEventListener('click', (e) => {
+                    const color = e.currentTarget.getAttribute('data-color');
+                    swatches.forEach(s => s.classList.remove('active'));
+                    e.currentTarget.classList.add('active');
+
+                    sampleMarks.forEach(mark => {
+                        mark.style.backgroundColor = color;
+                    });
+                });
+            });
+
+            // Initialize Lucide icons if loaded
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+
+</html>

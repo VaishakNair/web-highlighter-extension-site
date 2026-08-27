@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <style>
+      @keyframes cursorMove {
+        0%, 15% { transform: translate(450px, 260px); opacity: 0; }
+        25% { transform: translate(450px, 260px); opacity: 1; }
+        45% { transform: translate(500px, 35px); opacity: 1; }
+        55% { transform: translate(500px, 35px); opacity: 1; }
+        70% { transform: translate(515px, 142px); opacity: 1; }
+        80%, 92% { transform: translate(515px, 142px) scale(0.88); opacity: 1; }
+        98%, 100% { transform: translate(515px, 142px); opacity: 0; }
+      }
+
+      @keyframes menuAppear {
+        0%, 48% { opacity: 0; transform: translateY(-8px); pointer-events: none; }
+        54%, 94% { opacity: 1; transform: translateY(0); }
+        98%, 100% { opacity: 0; transform: translateY(-8px); }
+      }
+
+      @keyframes pinGlow {
+        0%, 78% { fill: #a0a0a0; stroke: none; }
+        82%, 94% { fill: #00f5ff; stroke: #00f5ff; }
+        98%, 100% { fill: #a0a0a0; stroke: none; }
+      }
+
+      @keyframes pinnedIconAppear {
+        0%, 82% { opacity: 0; transform: scale(0.5); }
+        86%, 94% { opacity: 1; transform: scale(1); }
+        98%, 100% { opacity: 0; transform: scale(0.5); }
+      }
+
+      .cursor-anim {
+        animation: cursorMove 7s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+        transform-origin: top left;
+      }
+
+      .menu-anim {
+        animation: menuAppear 7s ease-in-out infinite;
+      }
+
+      .pin-btn-anim {
+        animation: pinGlow 7s ease-in-out infinite;
+      }
+
+      .pinned-icon-anim {
+        animation: pinnedIconAppear 7s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        transform-origin: 455px 35px;
+      }
+
+      .text-font {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+    </style>
+    <filter id="shadow" x="-8%" y="-8%" width="120%" height="124%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background Browser Frame -->
+  <rect width="600" height="340" rx="16" fill="#0d0d0d" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5"/>
+
+  <!-- Top Browser Header / Tab Bar -->
+  <path d="M0 16 C0 7.163 7.163 0 16 0 L584 0 C592.837 0 600 7.163 600 16 L600 70 L0 70 Z" fill="#141414"/>
+  <circle cx="28" cy="35" r="6" fill="#ff5f57"/>
+  <circle cx="48" cy="35" r="6" fill="#febc2e"/>
+  <circle cx="68" cy="35" r="6" fill="#28c840"/>
+
+  <!-- Chrome Address Bar (Omnibox) -->
+  <rect x="96" y="18" width="320" height="34" rx="17" fill="#050505" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+  <text x="120" y="40" fill="#a0a0a0" font-size="12" class="text-font">chrome://extensions</text>
+
+  <!-- Newly Pinned Web Highlighter Icon (Appears when pinned) -->
+  <g class="pinned-icon-anim">
+    <rect x="440" y="20" width="30" height="30" rx="8" fill="rgba(138, 43, 226, 0.2)" stroke="rgba(138, 43, 226, 0.4)" stroke-width="1"/>
+    <circle cx="455" cy="35" r="8" fill="#8a2be2"/>
+    <path d="M451 35 L454 38 L460 32" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Chrome Toolbar Puzzle Piece Button (Extensions Icon) -->
+  <g transform="translate(485, 20)">
+    <rect width="30" height="30" rx="8" fill="rgba(255, 255, 255, 0.06)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
+    <!-- Puzzle Icon SVG -->
+    <path d="M19 13h-2v-2c0-1.1-.9-2-2-2h-2c0-1.1-.9-2-2-2s-2 .9-2 2H9c-1.1 0-2 .9-2 2v2H5c-1.1 0-2 .9-2 2s.9 2 2 2v2c0 1.1.9 2 2 2h2v2c0 1.1.9 2 2 2s2-.9 2-2h2c1.1 0 2-.9 2-2v-2h2c1.1 0 2-.9 2-2s-.9-2-2-2z" fill="#ffffff" transform="scale(0.85) translate(4, 4)"/>
+  </g>
+
+  <!-- Extensions Menu Popup (Opens upon clicking puzzle) -->
+  <g class="menu-anim" filter="url(#shadow)">
+    <!-- Popup Card -->
+    <rect x="310" y="78" width="260" height="180" rx="14" fill="#141414" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.5"/>
+
+    <!-- Header -->
+    <text x="328" y="104" fill="#ffffff" font-size="13" font-weight="600" class="text-font">Extensions</text>
+    <line x1="310" y1="116" x2="570" y2="116" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1"/>
+
+    <!-- Menu Item: Web Highlighter -->
+    <g transform="translate(322, 126)">
+      <!-- Item Background -->
+      <rect width="236" height="42" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"/>
+
+      <!-- Web Highlighter Icon -->
+      <circle cx="22" cy="21" r="12" fill="#8a2be2"/>
+      <path d="M17 21 L20 24 L27 17" stroke="#ffffff" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+      <!-- Item Title -->
+      <text x="44" y="25" fill="#ffffff" font-size="12.5" font-weight="500" class="text-font">Web Highlighter</text>
+
+      <!-- Pin Button Icon -->
+      <g transform="translate(196, 12)">
+        <circle cx="9" cy="9" r="13" fill="rgba(255,255,255,0.06)"/>
+        <!-- Push Pin SVG Path -->
+        <path class="pin-btn-anim" d="M12.5 3.5l1 1-3.2 3.2 1.4 1.4-1.1 1.1-2.8-2.8-3.2 3.2-1.4-1.4 3.2-3.2-2.8-2.8 1.1-1.1 1.4 1.4 3.2-3.2 1 1 3.2-1.6 3.2 1.6z" transform="scale(0.8) translate(0, 1)"/>
+      </g>
+    </g>
+
+    <!-- Subtext Info -->
+    <text x="328" y="200" fill="#a0a0a0" font-size="11" class="text-font">Click the pin icon to keep Web</text>
+    <text x="328" y="216" fill="#a0a0a0" font-size="11" class="text-font">Highlighter visible in your toolbar.</text>
+  </g>
+
+  <!-- Interactive Pointer / Mouse Cursor -->
+  <g class="cursor-anim">
+    <path d="M0 0 L0 18 L4.5 14 L8.5 22 L11.5 20.5 L7.5 12.8 L13 12.8 Z" fill="#ffffff" stroke="#050505" stroke-width="1.5" stroke-linejoin="round"/>
+  </g>
+</svg>
