@@ -233,68 +233,6 @@
             color: var(--text-muted);
         }
 
-        /* Interactive Playground Sandbox */
-        .sandbox-section {
-            padding: 2.5rem;
-            margin-bottom: 3.5rem;
-        }
-
-        .sandbox-box {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 1.5rem;
-            margin-top: 1.25rem;
-        }
-
-        .sandbox-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-main);
-        }
-
-        .sandbox-text mark {
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            color: #111827;
-            font-weight: 500;
-            transition: background-color 0.25s ease;
-        }
-
-        .sandbox-toolbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.25rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .swatch-group {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .swatch-btn {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .swatch-btn:hover {
-            transform: scale(1.2);
-        }
-
-        .swatch-btn.active {
-            border-color: #ffffff;
-            transform: scale(1.15);
-        }
 
         .welcome-cta {
             text-align: center;
@@ -453,33 +391,6 @@
             </div>
         </section>
 
-        <!-- Interactive Playground Sandbox -->
-        <section class="sandbox-section glass">
-            <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem;">🧪 Interactive Highlight Playground</h2>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">
-                Try out how highlights look right here! Select text or click the palette swatches below:
-            </p>
-            <div class="sandbox-box">
-                <p class="sandbox-text" id="sandbox-text">
-                    Web Highlighter helps you capture <mark id="sample-mark-1" style="background-color: var(--ext-yellow);">essential ideas</mark> while reading articles, documentation, and video transcripts. You can customize colors, add notes, search semantically, and generate AI summaries with <mark id="sample-mark-2" style="background-color: var(--secondary);">complete local privacy</mark>.
-                </p>
-                <div class="sandbox-toolbar">
-                    <div class="swatch-group">
-                        <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">Try Palette Colors:</span>
-                        <button class="swatch-btn active" style="background-color: var(--ext-yellow);" data-color="#febc2e" title="Yellow"></button>
-                        <button class="swatch-btn" style="background-color: var(--secondary);" data-color="#00f5ff" title="Cyan"></button>
-                        <button class="swatch-btn" style="background-color: var(--ext-green);" data-color="#28c840" title="Green"></button>
-                        <button class="swatch-btn" style="background-color: var(--ext-pink);" data-color="#ff7eb9" title="Pink"></button>
-                        <button class="swatch-btn" style="background-color: var(--ext-purple);" data-color="#5e5ce6" title="Purple"></button>
-                        <button class="swatch-btn" style="background-color: var(--ext-orange);" data-color="#fe9a2e" title="Orange"></button>
-                    </div>
-                    <span style="font-size: 0.85rem; color: var(--text-muted);">
-                        💡 Customize your default highlight color anytime in extension settings.
-                    </span>
-                </div>
-            </div>
-        </section>
-
         <!-- CTA & Quick Navigation -->
         <section class="welcome-cta">
             <div style="display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
@@ -494,7 +405,7 @@
 
     <script src="shared.js"></script>
 
-    <!-- Confetti Particle Engine & Sandbox Logic -->
+    <!-- Confetti Particle Engine & Page Initialization -->
     <script>
         // 1. Confetti Animation
         (function initConfetti() {
@@ -592,26 +503,11 @@
             animationId = requestAnimationFrame(render);
         })();
 
-        // 2. Interactive Sandbox Palette & Browser Detection
+        // 2. Browser Detection & Lucide Icons
         function initWelcome() {
             if (typeof applyBrowserBranding === 'function') {
                 applyBrowserBranding();
             }
-
-            const swatches = document.querySelectorAll('.swatch-btn');
-            const sampleMarks = document.querySelectorAll('.sandbox-text mark');
-
-            swatches.forEach(swatch => {
-                swatch.addEventListener('click', (e) => {
-                    const color = e.currentTarget.getAttribute('data-color');
-                    swatches.forEach(s => s.classList.remove('active'));
-                    e.currentTarget.classList.add('active');
-
-                    sampleMarks.forEach(mark => {
-                        mark.style.backgroundColor = color;
-                    });
-                });
-            });
 
             // Initialize Lucide icons if loaded
             if (window.lucide) {
