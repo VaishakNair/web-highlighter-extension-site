@@ -172,65 +172,9 @@
             display: block;
         }
 
-        /* Feature Cards for Onboarding */
+        /* Feature Cards Grid */
         .onboarding-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
             margin-bottom: 3.5rem;
-        }
-
-        .onboarding-card {
-            padding: 1.75rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .onboarding-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--secondary);
-        }
-
-        .onboarding-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: rgba(138, 43, 226, 0.15);
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-        }
-
-        .onboarding-card h3 {
-            font-size: 1.25rem;
-            color: var(--text-main);
-        }
-
-        .onboarding-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.55;
-        }
-
-        .tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: auto;
-            padding-top: 0.5rem;
-        }
-
-        .mini-tag {
-            font-size: 0.75rem;
-            padding: 0.2rem 0.55rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: var(--text-muted);
         }
 
 
@@ -321,71 +265,174 @@
                 Getting Started with <span class="gradient-text">Key Features</span>
             </h2>
 
-            <div class="onboarding-grid">
-                <!-- 1. Quick Highlight -->
-                <div class="onboarding-card glass">
-                    <div class="onboarding-icon">
-                        <i data-lucide="highlighter"></i>
+            <div class="features-grid onboarding-grid">
+                <!-- 1. Highlight or Underline -->
+                <div class="feature-card glass" data-youtube-id="WBPEEOKl24Q">
+                    <div class="feature-content">
+                        <div class="feature-icon"><svg class="text-marker" viewBox="0 0 24 24">
+                                <path
+                                    d="M21.7 4.3l-2-2c-1-1-2.6-1-3.6 0L5.3 13.1 2 22l8.9-3.3 10.8-10.8c1-1 1-2.6 0-3.6zM8.8 17.2l-4.5 1.7 1.7-4.5 8.1-8.1 2.8 2.8-8.1 8.1z" />
+                            </svg></div>
+                        <h3>Highlight or Underline</h3>
+                        <p>Choose between classic highlighting or sleek underlining. Pick the style that fits your
+                            reading
+                            mood.</p>
                     </div>
-                    <h3>Quick Highlighting</h3>
-                    <p>
-                        Select any text on any webpage to bring up the floating color palette, or press <kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-family: monospace;">Alt + H</kbd> for instant marking.
-                    </p>
-                    <div class="tag-row">
-                        <span class="mini-tag">10 Colors</span>
-                        <span class="mini-tag">Underline Mode</span>
-                        <span class="mini-tag">Alt + H</span>
-                    </div>
-                </div>
-
-                <!-- 2. Side Panel -->
-                <div class="onboarding-card glass">
-                    <div class="onboarding-icon">
-                        <i data-lucide="panel-right"></i>
-                    </div>
-                    <h3>Side Panel Command Center</h3>
-                    <p>
-                        Click the pinned extension icon anytime to open the <span class="browser-sidepanel-name">Chrome</span> Side Panel. Search semantically, filter by tags, and jump back to your saved snippets.
-                    </p>
-                    <div class="tag-row">
-                        <span class="mini-tag">Semantic Search</span>
-                        <span class="mini-tag">Tags & Notes</span>
-                        <span class="mini-tag">Backup Data</span>
+                    <div class="feature-video-preview">
+                        <img src="https://img.youtube.com/vi/WBPEEOKl24Q/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/WBPEEOKl24Q/hqdefault.jpg'" alt="Highlight or Underline Demo" loading="lazy" class="feature-thumbnail">
+                        <div class="play-badge glass">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                            </svg>
+                            <span>Watch Demo</span>
+                        </div>
                     </div>
                 </div>
-
-                <!-- 3. YouTube Highlighting -->
-                <div class="onboarding-card glass">
-                    <div class="onboarding-icon">
-                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"></polygon>
-                        </svg>
+                <!-- 2. Perfectly Ordered Research -->
+                <div class="feature-card glass" data-youtube-id="l-zp1ru4m04">
+                    <div class="feature-content">
+                        <div class="feature-icon"><i data-lucide="list-ordered"></i></div>
+                        <h3>Order in Chaos</h3>
+                        <p>Your highlights automatically follow the page order. If it appears first on the page, it
+                            appears
+                            first in your list.</p>
                     </div>
-                    <h3>YouTube Video Highlights</h3>
-                    <p>
-                        Web Highlighter deeply integrates with YouTube! Use the dedicated <strong>Highlight video button in the player control bar</strong> or the red <strong>YT toolbar badge</strong> to highlight transcripts.
-                    </p>
-                    <div class="tag-row">
-                        <span class="mini-tag">In-Player Button</span>
-                        <span class="mini-tag">YT Badge</span>
-                        <span class="mini-tag">Timestamps</span>
+                    <div class="feature-video-preview">
+                        <img src="https://img.youtube.com/vi/l-zp1ru4m04/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/l-zp1ru4m04/hqdefault.jpg'" alt="Order in Chaos Demo" loading="lazy" class="feature-thumbnail">
+                        <div class="play-badge glass">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                            </svg>
+                            <span>Watch Demo</span>
+                        </div>
                     </div>
                 </div>
-
-                <!-- 4. On-Device AI -->
-                <div class="onboarding-card glass">
-                    <div class="onboarding-icon">
-                        <i data-lucide="shield-check"></i>
+                <!-- 3. Custom Manual Reordering -->
+                <div class="feature-card glass" data-youtube-id="l-zp1ru4m04">
+                    <div class="feature-content">
+                        <div class="feature-icon"><i data-lucide="grab"></i></div>
+                        <h3>Manual Reordering</h3>
+                        <p>Move a highlight to the top or group ideas together. Drag and drop to arrange your research
+                            exactly how you want.</p>
                     </div>
-                    <h3>100% On-Device & Private</h3>
-                    <p>
-                        Your data never leaves your browser. All highlights are saved in local IndexedDB, and AI summaries run locally on your device via On-Device AI & WebGPU.
-                    </p>
-                    <div class="tag-row">
-                        <span class="mini-tag">IndexedDB</span>
-                        <span class="mini-tag">On-Device AI</span>
-                        <span class="mini-tag">Zero Telemetry</span>
+                    <div class="feature-video-preview">
+                        <img src="https://img.youtube.com/vi/l-zp1ru4m04/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/l-zp1ru4m04/hqdefault.jpg'" alt="Manual Reordering Demo" loading="lazy" class="feature-thumbnail">
+                        <div class="play-badge glass">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                            </svg>
+                            <span>Watch Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4. AI-Powered Summaries -->
+                <div class="feature-card glass" data-youtube-id="-tWj38iBi8E">
+                    <div class="feature-content">
+                        <div class="feature-icon"><i data-lucide="sparkles"></i></div>
+                        <h3>AI-Powered Summaries</h3>
+                        <p>Instantly generate unlimited TL;DR summaries or bullet points for any page you read. Since
+                            the AI works 100% on your computer, your research stays entirely private and never leaves
+                            your device.</p>
+                    </div>
+                    <div class="feature-video-preview">
+                        <img src="https://img.youtube.com/vi/-tWj38iBi8E/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/-tWj38iBi8E/hqdefault.jpg'" alt="AI-Powered Summaries Demo" loading="lazy" class="feature-thumbnail">
+                        <div class="play-badge glass">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                            </svg>
+                            <span>Watch Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 5. Add Thoughts -->
+                <div class="feature-card glass" data-youtube-id="YOuZ5_7LYCk">
+                    <div class="feature-content">
+                        <div class="feature-icon"><i data-lucide="sticky-note"></i></div>
+                        <h3>Notes & Tags</h3>
+                        <p>Add personal notes or use tags to group related ideas. Your digital notebook that lives in
+                            the
+                            browser.</p>
+                    </div>
+                    <div class="feature-video-preview">
+                        <img src="https://img.youtube.com/vi/YOuZ5_7LYCk/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/YOuZ5_7LYCk/hqdefault.jpg'" alt="Notes & Tags Demo" loading="lazy" class="feature-thumbnail">
+                        <div class="play-badge glass">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                            </svg>
+                            <span>Watch Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 6. Export to PDF & Markdown -->
+                <div class="feature-card glass" data-youtube-id="Wr3YAXj3YYE">
+                    <div class="feature-content">
+                        <div class="feature-icon"><i data-lucide="file-down"></i></div>
+                        <h3>Export to PDF & Markdown</h3>
+                        <p>Take your research anywhere. Export your highlights, notes, and tags into cleanly formatted PDF or Markdown documents with ease.</p>
+                    </div>
+                    <div class="feature-video-preview">
+                        <img src="https://img.youtube.com/vi/Wr3YAXj3YYE/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Wr3YAXj3YYE/hqdefault.jpg'" alt="Export to PDF and Markdown Demo" loading="lazy" class="feature-thumbnail">
+                        <div class="play-badge glass">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                            </svg>
+                            <span>Watch Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 7. Data Control -->
+                <div class="feature-card glass" data-youtube-id="cPrs6tZmMto">
+                    <div class="feature-content">
+                        <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+                        <h3>Full Data Control</h3>
+                        <p>Your research belongs to you. Backup or restore data to your device anytime. No servers, no
+                            tracking.</p>
+                    </div>
+                    <div class="feature-video-preview">
+                        <img src="https://img.youtube.com/vi/cPrs6tZmMto/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/cPrs6tZmMto/hqdefault.jpg'" alt="Full Data Control Demo" loading="lazy" class="feature-thumbnail">
+                        <div class="play-badge glass">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                            </svg>
+                            <span>Watch Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 8. YouTube Transcript Highlighting -->
+                <div class="feature-card glass" data-youtube-id="I0KnHekjB1c">
+                    <div class="feature-content">
+                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg></div>
+                        <h3>YouTube Transcript Highlighting</h3>
+                        <p>Extract captions directly from YouTube™ in multiple languages. Watch videos side-by-side with full transcripts and click any text or timestamp to seek to that exact moment.</p>
+                    </div>
+                    <div class="feature-video-preview">
+                        <img src="https://img.youtube.com/vi/I0KnHekjB1c/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/I0KnHekjB1c/hqdefault.jpg'" alt="YouTube Transcript Highlighting Demo" loading="lazy" class="feature-thumbnail">
+                        <div class="play-badge glass">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                            </svg>
+                            <span>Watch Demo</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 9. AI-Powered Semantic Search -->
+                <div class="feature-card glass" data-youtube-id="tcTqnFVvRSs">
+                    <div class="feature-content">
+                        <div class="feature-icon"><i data-lucide="brain-circuit"></i></div>
+                        <h3>AI-Powered Semantic Search</h3>
+                        <p>Find highlights by concept and meaning, not just exact words. Powered by a 100% local embedding model for total privacy and zero API costs.</p>
+                    </div>
+                    <div class="feature-video-preview">
+                        <img src="https://img.youtube.com/vi/tcTqnFVvRSs/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/tcTqnFVvRSs/hqdefault.jpg'" alt="AI-Powered Semantic Search Demo" loading="lazy" class="feature-thumbnail">
+                        <div class="play-badge glass">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                            </svg>
+                            <span>Watch Demo</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -403,6 +450,23 @@
     <!-- Footer Dynamic Template -->
     <footer></footer>
 
+    <!-- Feature Modal -->
+    <div id="featureModal" class="modal-overlay">
+        <div class="modal-container glass">
+            <button class="modal-close"><i data-lucide="x"></i></button>
+            <div class="modal-content">
+                <div class="modal-media">
+                    <div id="modalVideoContainer" class="modal-video-container"></div>
+                </div>
+                <div class="modal-text">
+                    <h2 id="modalTitle"></h2>
+                    <div id="modalDesc"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
     <script src="shared.js"></script>
 
     <!-- Confetti Particle Engine & Page Initialization -->
