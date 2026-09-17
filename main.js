@@ -26,37 +26,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Feature Modal Logic
     const modal = document.getElementById('featureModal');
-    const modalImg = document.getElementById('modalImg');
+    const modalVideoContainer = document.getElementById('modalVideoContainer');
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDesc');
     const modalClose = document.querySelector('.modal-close');
     const featureCards = document.querySelectorAll('.feature-card');
 
-    featureCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const img = card.querySelector('img').src;
-            const title = card.querySelector('h3').innerText;
-            const sublist = card.querySelector('.feature-sublist');
-            const p = card.querySelector('p');
+    const openModalForCard = (card) => {
+        const youtubeId = card.dataset.youtubeId;
+        const title = card.querySelector('h3') ? card.querySelector('h3').innerText : '';
+        const sublist = card.querySelector('.feature-sublist');
+        const p = card.querySelector('p');
 
-            modalImg.src = img;
-            modalTitle.innerText = title;
-            if (sublist) {
-                modalDesc.innerHTML = sublist.outerHTML;
-            } else if (p) {
-                modalDesc.innerHTML = p.outerHTML;
-            } else {
-                modalDesc.innerHTML = '';
+        modalTitle.innerText = title;
+        if (sublist) {
+            modalDesc.innerHTML = sublist.outerHTML;
+        } else if (p) {
+            modalDesc.innerHTML = p.outerHTML;
+        } else {
+            modalDesc.innerHTML = '';
+        }
+
+        if (modalVideoContainer && youtubeId) {
+            modalVideoContainer.innerHTML = `
+                <iframe 
+                    src="https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&vq=hd720" 
+                    title="${title} Demo Video" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>`;
+        }
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scroll
+    };
+
+    featureCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            const isTouch = e.pointerType === 'touch' || window.matchMedia('(hover: none)').matches;
+            if (isTouch && !card.classList.contains('revealed')) {
+                featureCards.forEach(c => c.classList.remove('revealed'));
+                card.classList.add('revealed');
+                return;
             }
 
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scroll
+            openModalForCard(card);
         });
+    });
+
+    // Dismiss revealed card on touch devices when tapping outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.feature-card')) {
+            featureCards.forEach(c => c.classList.remove('revealed'));
+        }
     });
 
     const closeModal = () => {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
+        if (modalVideoContainer) {
+            modalVideoContainer.innerHTML = ''; // Immediately stops video and background audio
+        }
     };
 
     modalClose.addEventListener('click', closeModal);
