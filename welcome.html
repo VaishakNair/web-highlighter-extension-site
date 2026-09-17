@@ -1,450 +1,565 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to Web Highlighter 🎉 | Getting Started</title>
-    <meta name="description" content="Thank you for installing Web Highlighter. Follow these simple tips to get started highlighting webpages and YouTube videos.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/icon.png">
-    <link rel="stylesheet" href="style.css">
+    <meta
+      name="description"
+      content="Thank you for installing Web Highlighter. Follow these simple tips to get started highlighting webpages and YouTube videos."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/icon.png" />
+    <link rel="stylesheet" href="style.css" />
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* Confetti Overlay */
-        #confetti-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 9999;
-        }
+      /* Confetti Overlay */
+      #confetti-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 9999;
+      }
 
-        /* Hero Onboarding Customizations */
-        .welcome-hero {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-            text-align: center;
-        }
+      /* Hero Onboarding Customizations */
+      .welcome-hero {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        text-align: center;
+      }
 
-        .welcome-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.4rem 1.1rem;
-            background: rgba(138, 43, 226, 0.15);
-            border: 1px solid rgba(138, 43, 226, 0.4);
-            border-radius: 999px;
-            color: var(--secondary);
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
+      .welcome-title {
+        font-size: 3.2rem;
+        line-height: 1.15;
+        margin-bottom: 0;
+        letter-spacing: -0.02em;
+      }
 
-        .welcome-title {
-            font-size: 3.2rem;
-            line-height: 1.15;
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.02em;
-        }
+      /* Reload Tabs Warning Banner */
+      .reload-banner {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding: 1.5rem 1.75rem;
+        background: rgba(254, 188, 46, 0.08);
+        border: 1px solid rgba(254, 188, 46, 0.3);
+        border-radius: 16px;
+        margin-bottom: 3rem;
+        text-align: left;
+      }
 
-        .welcome-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 750px;
-            margin: 0 auto 2.5rem;
-        }
+      .reload-icon-wrap {
+        color: var(--ext-yellow);
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
 
-        /* Reload Tabs Warning Banner */
-        .reload-banner {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.25rem;
-            padding: 1.5rem 1.75rem;
-            background: rgba(254, 188, 46, 0.08);
-            border: 1px solid rgba(254, 188, 46, 0.3);
-            border-radius: 16px;
-            margin-bottom: 3rem;
-            text-align: left;
-        }
+      .reload-content h3 {
+        font-size: 1.15rem;
+        color: #ffffff;
+        margin-bottom: 0.35rem;
+      }
 
-        .reload-icon-wrap {
-            color: var(--ext-yellow);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
+      .reload-content p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
 
-        .reload-content h3 {
-            font-size: 1.15rem;
-            color: #ffffff;
-            margin-bottom: 0.35rem;
-        }
+      .reload-content kbd {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 0.15rem 0.45rem;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 0.85rem;
+        color: #ffffff;
+      }
 
-        .reload-content p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
+      /* Pinning Section */
+      .pin-guide-container {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 2.5rem;
+        align-items: center;
+        padding: 2.5rem;
+        margin-bottom: 3.5rem;
+      }
 
-        .reload-content kbd {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.15rem 0.45rem;
-            border-radius: 6px;
-            font-family: monospace;
-            font-size: 0.85rem;
-            color: #ffffff;
-        }
-
-        /* Pinning Section */
+      @media (max-width: 860px) {
         .pin-guide-container {
-            display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            gap: 2.5rem;
-            align-items: center;
-            padding: 2.5rem;
-            margin-bottom: 3.5rem;
+          grid-template-columns: 1fr;
         }
-
-        @media (max-width: 860px) {
-            .pin-guide-container {
-                grid-template-columns: 1fr;
-            }
-            .welcome-title {
-                font-size: 2.3rem;
-            }
+        .welcome-title {
+          font-size: 2.3rem;
         }
+      }
 
-        .pin-steps-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            margin-top: 1.5rem;
-        }
+      .pin-steps-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+      }
 
-        .pin-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
+      .pin-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      }
 
-        .pin-step-num {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--gradient);
-            color: white;
-            font-weight: 700;
-            font-size: 0.95rem;
-            flex-shrink: 0;
-        }
+      .pin-step-num {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--gradient);
+        color: white;
+        font-weight: 700;
+        font-size: 0.95rem;
+        flex-shrink: 0;
+      }
 
-        .pin-step-text {
-            color: var(--text-main);
-            font-size: 1rem;
-            line-height: 1.45;
-        }
+      .pin-step-text {
+        color: var(--text-main);
+        font-size: 1rem;
+        line-height: 1.45;
+      }
 
-        .pin-step-text strong {
-            color: var(--secondary);
-        }
+      .pin-step-text strong {
+        color: var(--secondary);
+      }
 
-        .pin-visual-wrap {
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            background: #0d0d0d;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
+      .pin-visual-wrap {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        background: #0d0d0d;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
 
-        .pin-visual-wrap img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+      .pin-visual-wrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
 
-        /* Feature Cards Grid */
-        .onboarding-grid {
-            margin-bottom: 3.5rem;
-        }
-
-
-        .welcome-cta {
-            text-align: center;
-            padding-bottom: 2rem;
-        }
+      /* Feature Cards Grid */
+      .onboarding-grid {
+        margin-bottom: 3.5rem;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Confetti Falling Overlay -->
     <canvas id="confetti-canvas"></canvas>
 
     <!-- Top Logo Navigation -->
-    <div class="simple-logo-header container" style="padding: 2rem 2rem; justify-content: flex-start;">
-        <div class="logo">
-            <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
-                <img src="assets/icon.png" alt="Web Highlighter Logo" class="logo-icon" style="width: 36px; height: 36px;">
-                <span style="font-size: 1.5rem;">Web Highlighter</span>
-            </a>
-        </div>
+    <div
+      class="simple-logo-header container"
+      style="padding: 2rem 2rem; justify-content: flex-start"
+    >
+      <div class="logo">
+        <a
+          href="index.html"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: inherit;
+          "
+        >
+          <img
+            src="assets/icon.png"
+            alt="Web Highlighter Logo"
+            class="logo-icon"
+            style="width: 36px; height: 36px"
+          />
+          <span style="font-size: 1.5rem">Web Highlighter</span>
+        </a>
+      </div>
     </div>
 
     <!-- Main Content -->
     <main class="container">
-        <!-- Hero Header -->
-        <section class="welcome-hero">
-            <div class="welcome-badge">
-                <i data-lucide="sparkles"></i>
-                <span>You're all set!</span>
-            </div>
-            <h1 class="welcome-title">Thank You for Installing <span class="gradient-text">Web Highlighter</span></h1>
-            <p class="welcome-subtitle">
-                Your private, on-device AI companion for capturing insights, annotating research, and highlighting YouTube video transcripts with zero cloud tracking.
-            </p>
-        </section>
+      <!-- Hero Header -->
+      <section class="welcome-hero">
+        <h1 class="welcome-title">
+          Thank You for Installing
+          <span class="gradient-text">Web Highlighter</span>
+        </h1>
+      </section>
 
-        <!-- Reload Notice Banner -->
-        <div class="reload-banner glass">
-            <div class="reload-icon-wrap">
-                <i data-lucide="alert-triangle" style="width: 28px; height: 28px;"></i>
-            </div>
-            <div class="reload-content">
-                <h3>Already have tabs open? Give them a quick refresh!</h3>
-                <p>
-                    To start highlighting on tabs that were already open before you installed the extension, simply reload them with <kbd>Ctrl + R</kbd> (or <kbd>Cmd + R</kbd> on macOS).
-                </p>
-            </div>
+      <!-- Reload Notice Banner -->
+      <div class="reload-banner glass">
+        <div class="reload-icon-wrap">
+          <i data-lucide="alert-triangle" style="width: 28px; height: 28px"></i>
         </div>
+        <div class="reload-content">
+          <h3>Already have tabs open? Give them a quick refresh!</h3>
+          <p>
+            To start highlighting on tabs that were already open before you
+            installed the extension, simply reload them with
+            <kbd>Ctrl + R</kbd> (or <kbd>Cmd + R</kbd> on macOS).
+          </p>
+        </div>
+      </div>
 
-        <!-- Step 1: Pin Extension -->
-        <section class="pin-guide-container glass">
-            <div>
-                <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">📌 Step 1: Pin to Your Toolbar</h2>
-                <p style="color: var(--text-muted); font-size: 1.05rem;">
-                    Keep Web Highlighter always 1-click away while browsing and researching:
-                </p>
-                <div class="pin-steps-list">
-                    <div class="pin-step">
-                        <div class="pin-step-num">1</div>
-                        <div class="pin-step-text">
-                            Click the <strong>Extensions puzzle icon (🧩)</strong> in your <strong class="browser-name">Chrome</strong> toolbar.
-                        </div>
-                    </div>
-                    <div class="pin-step">
-                        <div class="pin-step-num">2</div>
-                        <div class="pin-step-text">
-                            Find <strong>Web Highlighter</strong> in your installed list.
-                        </div>
-                    </div>
-                    <div class="pin-step">
-                        <div class="pin-step-num">3</div>
-                        <div class="pin-step-text">
-                            Click the <strong>Pin icon (📌)</strong> so Web Highlighter stays permanently visible in your toolbar.
-                        </div>
-                    </div>
-                </div>
+      <!-- Step 1: Pin Extension -->
+      <section class="pin-guide-container glass">
+        <div>
+          <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem">
+            📌 Pin to Your Toolbar
+          </h2>
+          <p style="color: var(--text-muted); font-size: 1.05rem">
+            Keep Web Highlighter always 1-click away while browsing and
+            researching:
+          </p>
+          <div class="pin-steps-list">
+            <div class="pin-step">
+              <div class="pin-step-num">1</div>
+              <div class="pin-step-text">
+                Click the <strong>Extensions puzzle icon (🧩)</strong> in your
+                <strong class="browser-name">Chrome</strong> toolbar.
+              </div>
             </div>
-            <div class="pin-visual-wrap">
-                <img src="assets/pin-extension.svg" alt="How to pin Web Highlighter in your toolbar" />
+            <div class="pin-step">
+              <div class="pin-step-num">2</div>
+              <div class="pin-step-text">
+                Find <strong>Web Highlighter</strong> in your installed list.
+              </div>
             </div>
-        </section>
+            <div class="pin-step">
+              <div class="pin-step-num">3</div>
+              <div class="pin-step-text">
+                Click the <strong>Pin icon (📌)</strong> so Web Highlighter
+                stays permanently visible in your toolbar.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pin-visual-wrap">
+          <img
+            src="assets/pin-extension.svg"
+            alt="How to pin Web Highlighter in your toolbar"
+          />
+        </div>
+      </section>
 
-        <!-- Feature Guide Cards -->
-        <section style="margin-bottom: 2rem;">
-            <h2 class="section-title" style="margin-bottom: 1.5rem; text-align: left;">
-                Getting Started with <span class="gradient-text">Key Features</span>
-            </h2>
+      <!-- Feature Guide Cards -->
+      <section style="margin-bottom: 2rem">
+        <h2
+          class="section-title"
+          style="margin-bottom: 1.5rem; text-align: left"
+        >
+          Learn the Essentials with <span class="gradient-text">Bite-Sized Demos</span>
+        </h2>
 
-            <div class="features-grid onboarding-grid">
-                <!-- 1. Highlight or Underline -->
-                <div class="feature-card glass" data-youtube-id="WBPEEOKl24Q">
-                    <div class="feature-content">
-                        <div class="feature-icon"><svg class="text-marker" viewBox="0 0 24 24">
-                                <path
-                                    d="M21.7 4.3l-2-2c-1-1-2.6-1-3.6 0L5.3 13.1 2 22l8.9-3.3 10.8-10.8c1-1 1-2.6 0-3.6zM8.8 17.2l-4.5 1.7 1.7-4.5 8.1-8.1 2.8 2.8-8.1 8.1z" />
-                            </svg></div>
-                        <h3>Highlight or Underline</h3>
-                        <p>Choose between classic highlighting or sleek underlining. Pick the style that fits your
-                            reading
-                            mood.</p>
-                    </div>
-                    <div class="feature-video-preview">
-                        <img src="https://img.youtube.com/vi/WBPEEOKl24Q/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/WBPEEOKl24Q/hqdefault.jpg'" alt="Highlight or Underline Demo" loading="lazy" class="feature-thumbnail">
-                        <div class="play-badge glass">
-                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                            </svg>
-                            <span>Watch Demo</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 2. Perfectly Ordered Research -->
-                <div class="feature-card glass" data-youtube-id="l-zp1ru4m04">
-                    <div class="feature-content">
-                        <div class="feature-icon"><i data-lucide="list-ordered"></i></div>
-                        <h3>Order in Chaos</h3>
-                        <p>Your highlights automatically follow the page order. If it appears first on the page, it
-                            appears
-                            first in your list.</p>
-                    </div>
-                    <div class="feature-video-preview">
-                        <img src="https://img.youtube.com/vi/l-zp1ru4m04/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/l-zp1ru4m04/hqdefault.jpg'" alt="Order in Chaos Demo" loading="lazy" class="feature-thumbnail">
-                        <div class="play-badge glass">
-                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                            </svg>
-                            <span>Watch Demo</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 3. Custom Manual Reordering -->
-                <div class="feature-card glass" data-youtube-id="l-zp1ru4m04">
-                    <div class="feature-content">
-                        <div class="feature-icon"><i data-lucide="grab"></i></div>
-                        <h3>Manual Reordering</h3>
-                        <p>Move a highlight to the top or group ideas together. Drag and drop to arrange your research
-                            exactly how you want.</p>
-                    </div>
-                    <div class="feature-video-preview">
-                        <img src="https://img.youtube.com/vi/l-zp1ru4m04/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/l-zp1ru4m04/hqdefault.jpg'" alt="Manual Reordering Demo" loading="lazy" class="feature-thumbnail">
-                        <div class="play-badge glass">
-                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                            </svg>
-                            <span>Watch Demo</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 4. AI-Powered Summaries -->
-                <div class="feature-card glass" data-youtube-id="-tWj38iBi8E">
-                    <div class="feature-content">
-                        <div class="feature-icon"><i data-lucide="sparkles"></i></div>
-                        <h3>AI-Powered Summaries</h3>
-                        <p>Instantly generate unlimited TL;DR summaries or bullet points for any page you read. Since
-                            the AI works 100% on your computer, your research stays entirely private and never leaves
-                            your device.</p>
-                    </div>
-                    <div class="feature-video-preview">
-                        <img src="https://img.youtube.com/vi/-tWj38iBi8E/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/-tWj38iBi8E/hqdefault.jpg'" alt="AI-Powered Summaries Demo" loading="lazy" class="feature-thumbnail">
-                        <div class="play-badge glass">
-                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                            </svg>
-                            <span>Watch Demo</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 5. Add Thoughts -->
-                <div class="feature-card glass" data-youtube-id="YOuZ5_7LYCk">
-                    <div class="feature-content">
-                        <div class="feature-icon"><i data-lucide="sticky-note"></i></div>
-                        <h3>Notes & Tags</h3>
-                        <p>Add personal notes or use tags to group related ideas. Your digital notebook that lives in
-                            the
-                            browser.</p>
-                    </div>
-                    <div class="feature-video-preview">
-                        <img src="https://img.youtube.com/vi/YOuZ5_7LYCk/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/YOuZ5_7LYCk/hqdefault.jpg'" alt="Notes & Tags Demo" loading="lazy" class="feature-thumbnail">
-                        <div class="play-badge glass">
-                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                            </svg>
-                            <span>Watch Demo</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 6. Export to PDF & Markdown -->
-                <div class="feature-card glass" data-youtube-id="Wr3YAXj3YYE">
-                    <div class="feature-content">
-                        <div class="feature-icon"><i data-lucide="file-down"></i></div>
-                        <h3>Export to PDF & Markdown</h3>
-                        <p>Take your research anywhere. Export your highlights, notes, and tags into cleanly formatted PDF or Markdown documents with ease.</p>
-                    </div>
-                    <div class="feature-video-preview">
-                        <img src="https://img.youtube.com/vi/Wr3YAXj3YYE/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Wr3YAXj3YYE/hqdefault.jpg'" alt="Export to PDF and Markdown Demo" loading="lazy" class="feature-thumbnail">
-                        <div class="play-badge glass">
-                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                            </svg>
-                            <span>Watch Demo</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 7. Data Control -->
-                <div class="feature-card glass" data-youtube-id="cPrs6tZmMto">
-                    <div class="feature-content">
-                        <div class="feature-icon"><i data-lucide="shield-check"></i></div>
-                        <h3>Full Data Control</h3>
-                        <p>Your research belongs to you. Backup or restore data to your device anytime. No servers, no
-                            tracking.</p>
-                    </div>
-                    <div class="feature-video-preview">
-                        <img src="https://img.youtube.com/vi/cPrs6tZmMto/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/cPrs6tZmMto/hqdefault.jpg'" alt="Full Data Control Demo" loading="lazy" class="feature-thumbnail">
-                        <div class="play-badge glass">
-                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                            </svg>
-                            <span>Watch Demo</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 8. YouTube Transcript Highlighting -->
-                <div class="feature-card glass" data-youtube-id="I0KnHekjB1c">
-                    <div class="feature-content">
-                        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                            </svg></div>
-                        <h3>YouTube Transcript Highlighting</h3>
-                        <p>Extract captions directly from YouTube™ in multiple languages. Watch videos side-by-side with full transcripts and click any text or timestamp to seek to that exact moment.</p>
-                    </div>
-                    <div class="feature-video-preview">
-                        <img src="https://img.youtube.com/vi/I0KnHekjB1c/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/I0KnHekjB1c/hqdefault.jpg'" alt="YouTube Transcript Highlighting Demo" loading="lazy" class="feature-thumbnail">
-                        <div class="play-badge glass">
-                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                            </svg>
-                            <span>Watch Demo</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- 9. AI-Powered Semantic Search -->
-                <div class="feature-card glass" data-youtube-id="tcTqnFVvRSs">
-                    <div class="feature-content">
-                        <div class="feature-icon"><i data-lucide="brain-circuit"></i></div>
-                        <h3>AI-Powered Semantic Search</h3>
-                        <p>Find highlights by concept and meaning, not just exact words. Powered by a 100% local embedding model for total privacy and zero API costs.</p>
-                    </div>
-                    <div class="feature-video-preview">
-                        <img src="https://img.youtube.com/vi/tcTqnFVvRSs/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/tcTqnFVvRSs/hqdefault.jpg'" alt="AI-Powered Semantic Search Demo" loading="lazy" class="feature-thumbnail">
-                        <div class="play-badge glass">
-                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                            </svg>
-                            <span>Watch Demo</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="features-grid onboarding-grid">
+          <!-- 1. Highlight or Underline -->
+          <div class="feature-card glass" data-youtube-id="WBPEEOKl24Q">
+            <div class="feature-content">
+              <div class="feature-icon">
+                <svg class="text-marker" viewBox="0 0 24 24">
+                  <path
+                    d="M21.7 4.3l-2-2c-1-1-2.6-1-3.6 0L5.3 13.1 2 22l8.9-3.3 10.8-10.8c1-1 1-2.6 0-3.6zM8.8 17.2l-4.5 1.7 1.7-4.5 8.1-8.1 2.8 2.8-8.1 8.1z"
+                  />
+                </svg>
+              </div>
+              <h3>Highlight or Underline</h3>
+              <p>
+                Choose between classic highlighting or sleek underlining. Pick
+                the style that fits your reading mood.
+              </p>
             </div>
-        </section>
-
-        <!-- CTA & Quick Navigation -->
-        <section class="welcome-cta">
-            <div style="display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
-                <a href="index.html#features" class="btn btn-primary btn-large">Explore All Features</a>
-                <a href="index.html#demo" class="btn btn-secondary btn-large">Watch Video Demo</a>
+            <div class="feature-video-preview">
+              <img
+                src="https://img.youtube.com/vi/WBPEEOKl24Q/maxresdefault.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://img.youtube.com/vi/WBPEEOKl24Q/hqdefault.jpg';
+                "
+                alt="Highlight or Underline Demo"
+                loading="lazy"
+                class="feature-thumbnail"
+              />
+              <div class="play-badge glass">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+                <span>Watch Demo</span>
+              </div>
             </div>
-        </section>
+          </div>
+          <!-- 2. Perfectly Ordered Research -->
+          <div class="feature-card glass" data-youtube-id="l-zp1ru4m04">
+            <div class="feature-content">
+              <div class="feature-icon"><i data-lucide="list-ordered"></i></div>
+              <h3>Order in Chaos</h3>
+              <p>
+                Your highlights automatically follow the page order. If it
+                appears first on the page, it appears first in your list.
+              </p>
+            </div>
+            <div class="feature-video-preview">
+              <img
+                src="https://img.youtube.com/vi/l-zp1ru4m04/maxresdefault.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://img.youtube.com/vi/l-zp1ru4m04/hqdefault.jpg';
+                "
+                alt="Order in Chaos Demo"
+                loading="lazy"
+                class="feature-thumbnail"
+              />
+              <div class="play-badge glass">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+                <span>Watch Demo</span>
+              </div>
+            </div>
+          </div>
+          <!-- 3. Custom Manual Reordering -->
+          <div class="feature-card glass" data-youtube-id="l-zp1ru4m04">
+            <div class="feature-content">
+              <div class="feature-icon"><i data-lucide="grab"></i></div>
+              <h3>Manual Reordering</h3>
+              <p>
+                Move a highlight to the top or group ideas together. Drag and
+                drop to arrange your research exactly how you want.
+              </p>
+            </div>
+            <div class="feature-video-preview">
+              <img
+                src="https://img.youtube.com/vi/l-zp1ru4m04/maxresdefault.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://img.youtube.com/vi/l-zp1ru4m04/hqdefault.jpg';
+                "
+                alt="Manual Reordering Demo"
+                loading="lazy"
+                class="feature-thumbnail"
+              />
+              <div class="play-badge glass">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+                <span>Watch Demo</span>
+              </div>
+            </div>
+          </div>
+          <!-- 4. AI-Powered Summaries -->
+          <div class="feature-card glass" data-youtube-id="-tWj38iBi8E">
+            <div class="feature-content">
+              <div class="feature-icon"><i data-lucide="sparkles"></i></div>
+              <h3>AI-Powered Summaries</h3>
+              <p>
+                Instantly generate unlimited TL;DR summaries or bullet points
+                for any page you read. Since the AI works 100% on your computer,
+                your research stays entirely private and never leaves your
+                device.
+              </p>
+            </div>
+            <div class="feature-video-preview">
+              <img
+                src="https://img.youtube.com/vi/-tWj38iBi8E/maxresdefault.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://img.youtube.com/vi/-tWj38iBi8E/hqdefault.jpg';
+                "
+                alt="AI-Powered Summaries Demo"
+                loading="lazy"
+                class="feature-thumbnail"
+              />
+              <div class="play-badge glass">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+                <span>Watch Demo</span>
+              </div>
+            </div>
+          </div>
+          <!-- 5. Add Thoughts -->
+          <div class="feature-card glass" data-youtube-id="YOuZ5_7LYCk">
+            <div class="feature-content">
+              <div class="feature-icon"><i data-lucide="sticky-note"></i></div>
+              <h3>Notes & Tags</h3>
+              <p>
+                Add personal notes or use tags to group related ideas. Your
+                digital notebook that lives in the browser.
+              </p>
+            </div>
+            <div class="feature-video-preview">
+              <img
+                src="https://img.youtube.com/vi/YOuZ5_7LYCk/maxresdefault.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://img.youtube.com/vi/YOuZ5_7LYCk/hqdefault.jpg';
+                "
+                alt="Notes & Tags Demo"
+                loading="lazy"
+                class="feature-thumbnail"
+              />
+              <div class="play-badge glass">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+                <span>Watch Demo</span>
+              </div>
+            </div>
+          </div>
+          <!-- 6. Export to PDF & Markdown -->
+          <div class="feature-card glass" data-youtube-id="Wr3YAXj3YYE">
+            <div class="feature-content">
+              <div class="feature-icon"><i data-lucide="file-down"></i></div>
+              <h3>Export to PDF & Markdown</h3>
+              <p>
+                Take your research anywhere. Export your highlights, notes, and
+                tags into cleanly formatted PDF or Markdown documents with ease.
+              </p>
+            </div>
+            <div class="feature-video-preview">
+              <img
+                src="https://img.youtube.com/vi/Wr3YAXj3YYE/maxresdefault.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://img.youtube.com/vi/Wr3YAXj3YYE/hqdefault.jpg';
+                "
+                alt="Export to PDF and Markdown Demo"
+                loading="lazy"
+                class="feature-thumbnail"
+              />
+              <div class="play-badge glass">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+                <span>Watch Demo</span>
+              </div>
+            </div>
+          </div>
+          <!-- 7. Data Control -->
+          <div class="feature-card glass" data-youtube-id="cPrs6tZmMto">
+            <div class="feature-content">
+              <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+              <h3>Full Data Control</h3>
+              <p>
+                Your research belongs to you. Backup or restore data to your
+                device anytime. No servers, no tracking.
+              </p>
+            </div>
+            <div class="feature-video-preview">
+              <img
+                src="https://img.youtube.com/vi/cPrs6tZmMto/maxresdefault.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://img.youtube.com/vi/cPrs6tZmMto/hqdefault.jpg';
+                "
+                alt="Full Data Control Demo"
+                loading="lazy"
+                class="feature-thumbnail"
+              />
+              <div class="play-badge glass">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+                <span>Watch Demo</span>
+              </div>
+            </div>
+          </div>
+          <!-- 8. YouTube Transcript Highlighting -->
+          <div class="feature-card glass" data-youtube-id="I0KnHekjB1c">
+            <div class="feature-content">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </div>
+              <h3>YouTube Transcript Highlighting</h3>
+              <p>
+                Extract captions directly from YouTube™ in multiple languages.
+                Watch videos side-by-side with full transcripts and click any
+                text or timestamp to seek to that exact moment.
+              </p>
+            </div>
+            <div class="feature-video-preview">
+              <img
+                src="https://img.youtube.com/vi/I0KnHekjB1c/maxresdefault.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://img.youtube.com/vi/I0KnHekjB1c/hqdefault.jpg';
+                "
+                alt="YouTube Transcript Highlighting Demo"
+                loading="lazy"
+                class="feature-thumbnail"
+              />
+              <div class="play-badge glass">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+                <span>Watch Demo</span>
+              </div>
+            </div>
+          </div>
+          <!-- 9. AI-Powered Semantic Search -->
+          <div class="feature-card glass" data-youtube-id="tcTqnFVvRSs">
+            <div class="feature-content">
+              <div class="feature-icon">
+                <i data-lucide="brain-circuit"></i>
+              </div>
+              <h3>AI-Powered Semantic Search</h3>
+              <p>
+                Find highlights by concept and meaning, not just exact words.
+                Powered by a 100% local embedding model for total privacy and
+                zero API costs.
+              </p>
+            </div>
+            <div class="feature-video-preview">
+              <img
+                src="https://img.youtube.com/vi/tcTqnFVvRSs/maxresdefault.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://img.youtube.com/vi/tcTqnFVvRSs/hqdefault.jpg';
+                "
+                alt="AI-Powered Semantic Search Demo"
+                loading="lazy"
+                class="feature-thumbnail"
+              />
+              <div class="play-badge glass">
+                <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+                <span>Watch Demo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer Dynamic Template -->
@@ -452,18 +567,18 @@
 
     <!-- Feature Modal -->
     <div id="featureModal" class="modal-overlay">
-        <div class="modal-container glass">
-            <button class="modal-close"><i data-lucide="x"></i></button>
-            <div class="modal-content">
-                <div class="modal-media">
-                    <div id="modalVideoContainer" class="modal-video-container"></div>
-                </div>
-                <div class="modal-text">
-                    <h2 id="modalTitle"></h2>
-                    <div id="modalDesc"></div>
-                </div>
-            </div>
+      <div class="modal-container glass">
+        <button class="modal-close"><i data-lucide="x"></i></button>
+        <div class="modal-content">
+          <div class="modal-media">
+            <div id="modalVideoContainer" class="modal-video-container"></div>
+          </div>
+          <div class="modal-text">
+            <h2 id="modalTitle"></h2>
+            <div id="modalDesc"></div>
+          </div>
         </div>
+      </div>
     </div>
 
     <script src="main.js"></script>
@@ -471,120 +586,129 @@
 
     <!-- Confetti Particle Engine & Page Initialization -->
     <script>
-        // 1. Confetti Animation
-        (function initConfetti() {
-            const canvas = document.getElementById('confetti-canvas');
-            if (!canvas) return;
+      // 1. Confetti Animation
+      (function initConfetti() {
+        const canvas = document.getElementById("confetti-canvas");
+        if (!canvas) return;
 
-            const ctx = canvas.getContext('2d');
-            if (!ctx) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
 
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
+        function resizeCanvas() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
 
-            const colors = ['#8a2be2', '#00f5ff', '#ff5f57', '#febc2e', '#28c840', '#ff7eb9', '#9b51e0'];
-            const particles = [];
-            const particleCount = 150;
-            const startTime = performance.now();
-            const spawnDuration = 2200;
+        const colors = [
+          "#8a2be2",
+          "#00f5ff",
+          "#ff5f57",
+          "#febc2e",
+          "#28c840",
+          "#ff7eb9",
+          "#9b51e0",
+        ];
+        const particles = [];
+        const particleCount = 150;
+        const startTime = performance.now();
+        const spawnDuration = 2200;
 
-            function createParticle(fromTop) {
-                return {
-                    x: Math.random() * canvas.width,
-                    y: fromTop ? -20 - Math.random() * 40 : Math.random() * (canvas.height * 0.3) - 20,
-                    vx: (Math.random() - 0.5) * 4,
-                    vy: Math.random() * 3 + 2.5,
-                    size: Math.random() * 8 + 6,
-                    color: colors[Math.floor(Math.random() * colors.length)],
-                    rotation: Math.random() * 360,
-                    rotationSpeed: (Math.random() - 0.5) * 8,
-                    wobble: Math.random() * Math.PI * 2,
-                    wobbleSpeed: Math.random() * 0.1 + 0.05,
-                    opacity: 1,
-                    shape: Math.random() > 0.3 ? 'rect' : 'circle'
-                };
-            }
+        function createParticle(fromTop) {
+          return {
+            x: Math.random() * canvas.width,
+            y: fromTop
+              ? -20 - Math.random() * 40
+              : Math.random() * (canvas.height * 0.3) - 20,
+            vx: (Math.random() - 0.5) * 4,
+            vy: Math.random() * 3 + 2.5,
+            size: Math.random() * 8 + 6,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            rotation: Math.random() * 360,
+            rotationSpeed: (Math.random() - 0.5) * 8,
+            wobble: Math.random() * Math.PI * 2,
+            wobbleSpeed: Math.random() * 0.1 + 0.05,
+            opacity: 1,
+            shape: Math.random() > 0.3 ? "rect" : "circle",
+          };
+        }
 
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(createParticle(true));
-            }
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(createParticle(true));
+        }
 
-            let animationId;
-            function render(timestamp) {
-                const elapsed = timestamp - startTime;
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let animationId;
+        function render(timestamp) {
+          const elapsed = timestamp - startTime;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                if (elapsed < spawnDuration && particles.length < particleCount) {
-                    particles.push(createParticle(true));
-                }
+          if (elapsed < spawnDuration && particles.length < particleCount) {
+            particles.push(createParticle(true));
+          }
 
-                let activeCount = 0;
+          let activeCount = 0;
 
-                for (let i = 0; i < particles.length; i++) {
-                    const p = particles[i];
-                    p.x += p.vx + Math.sin(p.wobble) * 1.5;
-                    p.y += p.vy;
-                    p.vy += 0.06;
-                    p.vx *= 0.99;
-                    p.rotation += p.rotationSpeed;
-                    p.wobble += p.wobbleSpeed;
+          for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.x += p.vx + Math.sin(p.wobble) * 1.5;
+            p.y += p.vy;
+            p.vy += 0.06;
+            p.vx *= 0.99;
+            p.rotation += p.rotationSpeed;
+            p.wobble += p.wobbleSpeed;
 
-                    if (p.y > canvas.height * 0.75 || elapsed > 3500) {
-                        p.opacity -= 0.015;
-                    }
-
-                    if (p.opacity > 0 && p.y < canvas.height + 50) {
-                        activeCount++;
-                        ctx.save();
-                        ctx.translate(p.x, p.y);
-                        ctx.rotate((p.rotation * Math.PI) / 180);
-                        ctx.globalAlpha = Math.max(0, p.opacity);
-                        ctx.fillStyle = p.color;
-
-                        if (p.shape === 'circle') {
-                            ctx.beginPath();
-                            ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
-                            ctx.fill();
-                        } else {
-                            ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size * 0.6);
-                        }
-                        ctx.restore();
-                    }
-                }
-
-                if (activeCount > 0 && elapsed < 6000) {
-                    animationId = requestAnimationFrame(render);
-                } else {
-                    cancelAnimationFrame(animationId);
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-                }
+            if (p.y > canvas.height * 0.75 || elapsed > 3500) {
+              p.opacity -= 0.015;
             }
 
+            if (p.opacity > 0 && p.y < canvas.height + 50) {
+              activeCount++;
+              ctx.save();
+              ctx.translate(p.x, p.y);
+              ctx.rotate((p.rotation * Math.PI) / 180);
+              ctx.globalAlpha = Math.max(0, p.opacity);
+              ctx.fillStyle = p.color;
+
+              if (p.shape === "circle") {
+                ctx.beginPath();
+                ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+                ctx.fill();
+              } else {
+                ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size * 0.6);
+              }
+              ctx.restore();
+            }
+          }
+
+          if (activeCount > 0 && elapsed < 6000) {
             animationId = requestAnimationFrame(render);
-        })();
-
-        // 2. Browser Detection & Lucide Icons
-        function initWelcome() {
-            if (typeof applyBrowserBranding === 'function') {
-                applyBrowserBranding();
-            }
-
-            // Initialize Lucide icons if loaded
-            if (window.lucide) {
-                lucide.createIcons();
-            }
+          } else {
+            cancelAnimationFrame(animationId);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+          }
         }
 
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initWelcome);
-        } else {
-            initWelcome();
+        animationId = requestAnimationFrame(render);
+      })();
+
+      // 2. Browser Detection & Lucide Icons
+      function initWelcome() {
+        if (typeof applyBrowserBranding === "function") {
+          applyBrowserBranding();
         }
+
+        // Initialize Lucide icons if loaded
+        if (window.lucide) {
+          lucide.createIcons();
+        }
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initWelcome);
+      } else {
+        initWelcome();
+      }
     </script>
-</body>
-
+  </body>
 </html>
